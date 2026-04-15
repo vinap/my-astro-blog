@@ -6,6 +6,8 @@ const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
 function withBase(path) {
 	return `${basePath}${path}`;
 }
+
+ 
 ---
 
 <header>
@@ -14,7 +16,7 @@ function withBase(path) {
 		<div class="internal-links">
 			<HeaderLink href={withBase('/')}>Home</HeaderLink>
 			<HeaderLink href={withBase('/blog')}>Blog</HeaderLink>
-			<HeaderLink href={withBase('/about')}>About</HeaderLink>
+			<HeaderLink href={withBase('/about')}>About {Astro}</HeaderLink>
 		</div>
 		<div class="social-links">
 			<a href="https://www.linkedin.com/in/vinayakmanjare/" target="_blank">
@@ -27,6 +29,7 @@ function withBase(path) {
 			</a>
 		</div>
 	</nav>
+	
 </header>
 <style>
 	header {
@@ -67,6 +70,20 @@ function withBase(path) {
 		.social-links {
 			display: none;
 		}
+	}
+	.astro-details {
+		margin-top: 1em;
+		padding: 1em;
+		background: #f5f5f5;
+		border-left: 4px solid var(--accent);
+	}
+	.astro-details h3 {
+		margin-top: 0;
+	}
+	.astro-details pre {
+		margin: 0;
+		overflow-x: auto;
+		font-size: 0.85em;
 	}
 </style>
 

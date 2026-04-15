@@ -51,14 +51,12 @@ const { title, description, image = FallbackImage } = Astro.props;
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta 
-  property="og:image" 
-  content={new URL(image.src || image, Astro.site.href + Astro.config.base)} 
-/>
+<meta property="og:image" content={new URL('my-astro-blog/favicon.svg', Astro.site)} />
+
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={new URL('favicon.svg', Astro.site)} />
+<meta property="twitter:image" content={new URL('favicon.ico', Astro.site)} />
