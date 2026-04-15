@@ -6,9 +6,21 @@ import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 
+const assetImages = import.meta.glob('../assets/*.{jpg,png}', {
+	eager: true,
+	query: '?url',
+	import: 'default',
+});
+
+function findAssetUrl(path) {
+	const fileName = path.split('/').pop();
+	return Object.entries(assetImages).find((entry) => entry[0].endsWith(fileName))?.[1] ?? null;
+}
+
 type Props = CollectionEntry<'blog'>['data'];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const heroImageSrc = typeof heroImage === 'string' ? findAssetUrl(heroImage) : heroImage;
 ---
 
 <html lang="en">
@@ -60,7 +72,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 		<main>
 			<article>
 				<div class="hero-image">
-					{heroImage && <Image width={1020} height={510} src={heroImage} alt="" />}
+					{heroImageSrc && <Image width={1020} height={510} src={heroImageSrc} alt="" />}
 				</div>
 				<div class="prose">
 					<div class="title">

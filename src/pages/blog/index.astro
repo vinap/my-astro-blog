@@ -10,6 +10,17 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+
+const assetImages = import.meta.glob('../../assets/*.{jpg,png}', {
+	eager: true,
+	query: '?url',
+	import: 'default',
+});
+
+function findAssetUrl(path) {
+	const fileName = path.split('/').pop();
+	return Object.entries(assetImages).find((entry) => entry[0].endsWith(fileName))?.[1] ?? null;
+}
 ---
 
 <!doctype html>
@@ -96,7 +107,16 @@ const posts = (await getCollection('blog')).sort(
 							<li>
 								<a href={`/blog/${post.id}/`}>
 									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
+										<Image
+										width={720}
+										height={360}
+										src={
+											typeof post.data.heroImage === 'string'
+												? findAssetUrl(post.data.heroImage)
+												: post.data.heroImage
+										}
+										alt=""
+									/>
 									)}
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
