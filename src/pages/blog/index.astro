@@ -10,6 +10,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 const assetImages = import.meta.glob('../../assets/*.{jpg,png}', {
 	eager: true,
@@ -105,7 +106,7 @@ function findAssetUrl(path) {
 					{
 						posts.map((post) => (
 							<li>
-								<a href={`/blog/${post.id}/`}>
+								<a href={`${basePath}/blog/${post.id}/`}>
 									{post.data.heroImage && (
 										<Image
 										width={720}

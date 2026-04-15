@@ -8,6 +8,7 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => Number(b.data.pubDate) - Number(a.data.pubDate)
 );
+const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!doctype html>
@@ -42,7 +43,7 @@ const posts = (await getCollection('blog')).sort(
 					<ul>
 						{posts.map((post) => (
 							<li>
-								<a href={`/blog/${post.id}`}>
+								<a href={`${basePath}/blog/${post.id}`}>
 									<strong>{post.data.title}</strong>
 								</a>
 								<p>{post.data.description}</p>
