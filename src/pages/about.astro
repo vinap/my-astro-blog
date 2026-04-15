@@ -1,54 +1,112 @@
 ---
 import AboutHeroImage from '../assets/blog-placeholder-about.png';
+import ProfessionalJourney from '../assets/Professional_Journey.png';
+import TechnicalCore from '../assets/Technical_Core_Competencies.png';
 import Layout from '../layouts/BlogPost.astro';
 ---
 
 <Layout
-	title="About Me"
-	description="Senior Software Professional based in Pune, specializing in Backend Architecture and Generative AI."
+	title="About Me: The Architect Behind the AI 🛠️"
+	description="Senior Technical Architect specializing in future-proofing legacy environments with AI and enterprise systems."
 	pubDate={new Date('April 15 2026')}
 	heroImage={AboutHeroImage}
 >
-	<p>
-		Hi, I'm <strong>Vinayak</strong>. I am a Senior Software Professional based in Pune, India, 
-		with over 15 years of experience in architecting robust backend systems. For more than a decade, 
-		my career has been defined by the "how" of software—building scalable P2P products and 
-		high-performance data platforms that serve as the backbone for complex applications.
+	<style>
+		@keyframes pulse {
+			0% { transform: scale(1); }
+			50% { transform: scale(1.1); }
+			100% { transform: scale(1); }
+		}
+		@keyframes fadeIn {
+			from { opacity: 0; transform: translateY(20px); }
+			to { opacity: 1; transform: translateY(0); }
+		}
+		@keyframes slideInLeft {
+			from { opacity: 0; transform: translateX(-50px); }
+			to { opacity: 1; transform: translateX(0); }
+		}
+		@keyframes bounce {
+			0%, 100% { transform: translateY(0); }
+			50% { transform: translateY(-15px); }
+		}
+		@keyframes float {
+			0%, 100% { transform: translateY(0px); }
+			50% { transform: translateY(-10px); }
+		}
+		@keyframes glow {
+			0%, 100% { text-shadow: 0 0 5px rgba(255, 215, 0, 0.5); }
+			50% { text-shadow: 0 0 20px rgba(255, 215, 0, 1); }
+		}
+		@keyframes rotate {
+			from { transform: rotate(0deg); }
+			to { transform: rotate(360deg); }
+		}
+		@keyframes shimmer {
+			0% { background-position: -1000px 0; }
+			100% { background-position: 1000px 0; }
+		}
+		h2 {
+			animation: slideInLeft 1s ease-out;
+		}
+		p, ul, img {
+			animation: fadeIn 1.5s ease-out;
+		}
+		hr {
+			animation: fadeIn 2s ease-out;
+		}
+	</style>
+	<p style="animation: bounce 2s infinite;">
+		Hello! I'm Vinayak Manjare, a Senior Technical Architect 🎯 based in Pune. With over 15 years of experience, I've built the backbone of high-stakes enterprise systems across BFSI, Procurement, and E-commerce. I specialize in "future-proofing" legacy environments. Lately, that means bridging the gap between experimental LLMs and production-grade software.  I don't just build AI; I build the architectural plumbing that makes it reliable, secure, and cost-effective. 🚀
 	</p>
 
-	<h3>My Journey</h3>
+	<h2><img src="https://img.icons8.com/color/24/000000/briefcase.png" alt="Journey" style="vertical-align: middle; margin-right: 8px; animation: rotate 3s linear infinite;" /> My Professional Journey 📈</h2>
+	<img src={ProfessionalJourney.src} alt="Professional Journey" style="max-width: 100%; height: auto; animation: float 3s ease-in-out infinite;" />
 	<p>
-		After years of focusing on core infrastructure, I’ve shifted my attention to the "what's next"—<strong>Generative AI</strong>. 
-		I believe the future of software lies in the intersection of reliable backend engineering and the 
-		intelligent capabilities of Large Language Models. I am currently bridging the gap into full-scale 
-		AI Engineering, bringing a veteran's perspective to a rapidly evolving field.
-	</p>
-
-	<h3>What I’m Building Now</h3>
-	<p>
-		Currently, I’m exploring the synergy between <strong>Serverless Architecture</strong> and 
-		<strong>LLMs</strong>. My focus is on moving beyond simple prompts toward autonomous, 
-		production-ready systems. My recent work involves:
+		From mastering product foundations at Yardi to engineering real-time data streaming for Deutsche Bank, I've focused on systems that stay live 99.9% ⏱️ of the time.
 	</p>
 	<ul>
-		<li><strong>Serverless RAG Pipelines:</strong> Implementing cost-effective retrieval systems using Amazon Bedrock and S3 Vectors.</li>
-		<li><strong>Agentic AI:</strong> Moving beyond static inputs to create autonomous agent workflows that can reason and execute tasks.</li>
-		<li><strong>Cloud-Native AI:</strong> Leveraging my AWS certified expertise to ensure AI models are deployed with enterprise-grade scalability and security.</li>
+		<li><strong>Product Foundation (2011–2018):</strong> Spent 7 years at Yardi, leading the internationalization of the US platform for the UK market.</li>
+		<li><strong>Enterprise Scale (2018–2022):</strong> Engineered identity platforms for Charles Schwab and high-velocity monitoring for Deutsche Bank.</li>
+		<li><strong>AI Innovation (2023–Present):</strong> Currently a Project Lead at Persistent, transforming legacy sourcing platforms into AI-enabled powerhouses.</li>
 	</ul>
 
-	<h3>Beyond the Code</h3>
+	<hr />
+
+	<h2><img src="https://img.icons8.com/color/24/000000/brain.png" alt="Brain" style="vertical-align: middle; margin-right: 8px;" /> 🧠 Technical Core & Impact ⚡</h2>
+	<img src={TechnicalCore.src} alt="Technical Core Competencies" style="max-width: 100%; height: auto; animation: float 3s ease-in-out infinite;" />
 	<p>
-		When I'm not debugging vector databases or fine-tuning prompts, I stay active and engaged with the world around me:
+		I focus on technology that is fiscally responsible. Recently, I reduced AWS Fargate monthly costs by 25% through strategic microservices refactoring. <img src="https://img.icons8.com/color/24/000000/money.png" alt="Money" style="vertical-align: middle; margin-left: 8px;" /><br />
+		<img src="https://quickchart.io/chart?c={type:'bar',data:{labels:['Before','After'],datasets:[{label:'Monthly Cost (USD)',data:[4000,3000],backgroundColor:['#FF6B6B','#51CF66']}]},options:{plugins:{legend:{display:false}},scales:{y:{beginAtZero:true}}}}" alt="Cost Reduction Graph - 25% Savings" width="350" style="display: block; margin: 10px 0; animation: float 3s ease-in-out infinite;" />
+		The AI Edge: RAG Pipeline Design, Prompt Engineering, and custom metadata caching that slashed token costs by 60% 💰. <img src="https://img.icons8.com/color/24/000000/artificial-intelligence.png" alt="AI" style="vertical-align: middle; margin-left: 8px;" /> Modern Backend: Java 17, Spring Boot 3.2, and Microservices consolidation. Data & Cloud: AWS Specialist (Lambda, Fargate, S3) and Confluent Certified Data Streaming Engineer.
 	</p>
-	<ul>
-		<li><strong>Running:</strong> I am a dedicated runner, constantly training for my next personal record. I recently achieved a milestone of an 8.99km continuous jog!</li>
-		<li><strong>History:</strong> I am deeply passionate about Marathi history and the intricate details of ancestral genealogy.</li>
-		<li><strong>Learning:</strong> I consider myself an eternal student, always enrolled in a new technical challenge to stay at the forefront of the industry.</li>
-	</ul>
 
-	<p>
-		Want to chat about RAG architecture, AWS, or history? Connect with me via 
-		<a href="https://www.linkedin.com/in/vinayakmanjare/">LinkedIn</a>, check out my code on 
-		<a href="https://github.com/vinap">GitHub</a>
+	<hr />
+
+	<h2><img src="https://img.icons8.com/color/24/000000/trophy.png" alt="Trophy" style="vertical-align: middle; margin-right: 8px; animation: bounce 1.5s infinite;" /> 🏆 Verified Certifications ✨</h2>
+	<div style="display: flex; align-items: center; margin-bottom: 10px;">
+		<a href="https://www.credly.com/badges/4d4693bb-530e-4bca-9327-de07f3aa2348">
+			<img src="https://images.credly.com/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png" width="80" alt="AWS Certified AI Practitioner" style="margin-right: 10px; animation: pulse 2s infinite;" />
+		</a>
+		<div style="animation: glow 2s ease-in-out infinite;">
+			<strong>AWS Certified AI Practitioner</strong><br />
+			Focuses on implementing AI/ML solutions on AWS, including generative AI foundation models and responsible AI.
+		</div>
+	</div>
+	<div style="display: flex; align-items: center; margin-bottom: 10px;">
+		<a href="https://www.credly.com/badges/4136ced8-75d5-4afb-8677-40b6236e2672">
+			<img src="https://images.credly.com/images/4136ced8-75d5-4afb-8677-40b6236e2672/azure-ai-fundamentals-600x600.png" width="80" alt="Microsoft Certified: Azure AI Fundamentals (AI-900)" style="margin-right: 10px; animation: pulse 2s infinite;" />
+		</a>
+		<div style="animation: glow 2s ease-in-out infinite;">
+			<strong>Microsoft Certified: Azure AI Fundamentals (AI-900)</strong><br />
+			Demonstrates foundational knowledge of AI and ML workloads on Microsoft Azure.
+		</div>
+	</div>
+
+	<hr />
+
+	<h2><img src="https://img.icons8.com/color/24/000000/handshake.png" alt="Connect" style="vertical-align: middle; margin-right: 8px; animation: float 2.5s ease-in-out infinite;" /> 🤝 Let's Connect 🌐</h2>
+	<p style="animation: float 2.5s ease-in-out infinite;">
+		<img src="https://img.icons8.com/color/24/000000/marker.png" alt="Location" style="vertical-align: middle; margin-right: 8px;" /> <strong>Location</strong>: Pune, Maharashtra 🇮🇳<br />
+		<img src="https://img.icons8.com/color/24/000000/linkedin.png" alt="LinkedIn" style="vertical-align: middle; margin-right: 8px;" /> <strong>LinkedIn</strong>: <a href="https://linkedin.com/in/vinayakmanjare">linkedin.com/in/vinayakmanjare</a>
 	</p>
 </Layout>
