@@ -1,7 +1,7 @@
 ---
 title: 'The Bankruptcy Ghost: The Liability Chain'
 description: 'Executing a $1M PO for a customer that no longer exists.'
-pubDate: '2026-04-19'
+pubDate: '2027-04-19'
 heroImage: '../../assets/images/blog/04-the-bankruptcy-ghost.png'
 ---
 

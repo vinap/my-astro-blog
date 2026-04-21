@@ -1,7 +1,7 @@
 ---
 title: 'The RFP ''Fresh Set'' Trap: The Supplier Tax'
 description: 'Punishing suppliers because our requirements evolved.'
-pubDate: '2026-04-22'
+pubDate: '2027-04-22'
 heroImage: '../../assets/images/blog/07-the-rfp-fresh-set-trap.png'
 ---
 

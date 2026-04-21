@@ -1,7 +1,7 @@
 ---
 title: 'The Shadow Procurement Leak'
 description: 'Why employees use personal cards to avoid ''Slow P2P''.'
-pubDate: '2026-04-26'
+pubDate: '2027-04-26'
 heroImage: '../../assets/images/blog/11-the-shadow-procurement-leak.png'
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 'Geopolitical Whiplash: The Friday Night Re-Map'
 description: 'Manually re-routing supply chains because of a sudden tariff.'
-pubDate: '2026-04-24'
+pubDate: '2027-04-24'
 heroImage: '../../assets/images/blog/09-geopolitical-whiplash.png'
 ---
 

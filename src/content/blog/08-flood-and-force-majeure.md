@@ -1,7 +1,7 @@
 ---
 title: 'When the Match Meets the Flood'
 description: 'When the EDI 810 has no concept of a submerged port.'
-pubDate: '2026-04-23'
+pubDate: '2027-04-23'
 heroImage: '../../assets/images/blog/08-flood-and-force-majeure.png'
 ---
 

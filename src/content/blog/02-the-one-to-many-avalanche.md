@@ -1,7 +1,7 @@
 ---
 title: 'The 1-to-Many Avalanche: The Reconciliation Trap'
 description: 'How one simple cart turns into a 15-invoice nightmare.'
-pubDate: '2026-04-17'
+pubDate: '2027-04-17'
 heroImage: '../../assets/images/blog/02-the-one-to-many-avalanche.png'
 ---
 

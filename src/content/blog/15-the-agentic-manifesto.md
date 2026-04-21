@@ -1,7 +1,7 @@
 ---
 title: 'The Agentic Manifesto: P2P in 2027'
 description: 'Defining a ''Self-Healing'' supply chain.'
-pubDate: '2026-04-30'
+pubDate: '2027-04-30'
 heroImage: '../../assets/images/blog/15-the-agentic-manifesto.png'
 ---
 

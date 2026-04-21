@@ -5,52 +5,108 @@ pubDate: '2026-04-16'
 heroImage: '../../assets/images/blog/01-the-deep-burning.png'
 ---
 
-I call it the **Deep Burning**. If you have spent enough years in procurement platforms, supplier integrations, and post-go-live support, you know the feeling immediately. It is that moment when the executive dashboard is glowing green, the steering committee is smiling, and somewhere inside your chest you know the platform is quietly failing in production.
+I call it the **Deep Burning**.
 
-I have felt that burn in boardrooms, war rooms, and late-night bridge calls. The screen says "PO Transmission Success: 99.2%". The business hears "stable". But the senior engineer or sourcing operations lead hears something else entirely: "We measured the wrong thing, and now we are about to pay for it."
+If you have spent enough time in procurement systems, supplier integrations, or production support, you will know this feeling. The dashboard looks fine. The flow looks fine. People around you think the system is working. But inside, you know something is off.
 
-**A War Story From The Floor:**
-One quarter, we had a Tier-1 manufacturing line in Chennai stop for four days even though the procurement dashboard looked healthy. The buyers had released the purchase orders. The middleware had technically transmitted the 850 messages. The reporting layer counted those transmissions as success. Everyone relaxed.
+I have seen this many times. Not in theory. In real support situations. In review calls. In those tense moments where everybody is staring at the dashboard and asking, "Then why is the business saying there is a problem?"
 
-Then the line stopped.
+That is the burn.
 
-When we went deeper, we found the supplier acknowledgments were arriving with a minor code variation in the EDI 855 response. The mapping layer did not know what to do with that variation, so it discarded the acknowledgments as non-critical noise. No red alert. No escalation. No buyer notification. Just silence dressed up as success.
+The system is running. Messages are moving. Statuses are updating. But the truth is slipping somewhere in between.
 
-That is the cruel part of bad enterprise software. It rarely fails with drama. It fails politely.
+**One Situation I Still Remember:**
+The PO was sent properly from our side. The supplier also sent back the response. So if you looked at the transaction flow at a high level, everything had happened.
 
-**What The Business Usually Misses:**
-In procurement, a sent PO is not an outcome. It is only the beginning of a commercial promise. What matters is whether the supplier accepted it, committed to the quantity, committed to the date, and confirmed the price. If your reporting stops at "message sent", you are not measuring supply assurance. You are measuring optimism.
+But our system did not understand one small variation in the returned status.
 
-I have seen teams spend months building gorgeous dashboards with filters, drill-downs, and glossy KPI tiles while ignoring the operational questions buyers actually need answered:
+That was it.
 
-- Which orders were acknowledged with changes?
-- Which suppliers are consistently soft-rejecting lines?
-- Which plants are at risk because confirmation never came back?
-- Which exceptions are being swallowed by middleware instead of routed to action?
+Not a huge failure. Not a broken interface. Not a complete communication gap. Just a small mismatch in the standard, small enough for a human to understand after a quick check, but enough for the system to miss it.
 
-That gap between executive reporting and operational truth is where money leaks.
+And because it missed it, the dashboard showed the wrong picture.
 
-**The Technical Anatomy Of The Failure:**
-The root issue is almost always the same: the architecture treats exceptions like logging artifacts instead of business events. "Soft errors", partial acknowledgments, tolerance mismatches, alternate UOM values, and supplier substitutions all get pushed into obscure monitoring tables that no buyer ever sees.
+The actual supplier response was there, but the system fell back to an unknown or failed status. Once that happened, the usual cycle started. Business team got worried. Support team started checking logs. People asked whether the PO had gone. People asked whether the supplier had responded. People asked whether the interface was down. Calls started. Follow-ups started. Time got wasted.
 
-From a software deployment perspective, I have watched teams celebrate go-live because the interfaces were "up" and the jobs were "green". But green jobs are not the same as healthy outcomes. A technically successful batch can still create a commercially failed transaction chain.
+Later, when we investigated properly, the answer was both simple and irritating: the response had come. The system had seen it. But because the returned status had a small variation from the expected mapping, it treated it like something unknown and raised a false negative.
 
-That is why I stopped trusting dashboards built only by BI teams without operations people in the room. Procurement data has semantics. An 855 with a changed date is not just a row in a table. It is a scheduling risk. An 810 mismatch is not just a failed match. It is a future supplier complaint, a blocked invoice, and eventually a credibility problem between AP and the business.
+This is what many legacy systems do. They do not always fail dramatically. Sometimes they just quietly misunderstand the situation and then confidently show the wrong status.
 
-**A More Human Example:**
-Picture a buyer managing a critical PCB assembly program. She submits a rush buy on Tuesday. The system shows "sent". By Wednesday, she assumes the supplier is building. By Thursday, production planning assumes the date is safe. By Friday, the supplier still has not accepted the quantity because the acknowledgment was rejected by the mapper. Nobody knows. On Monday morning, the factory escalates.
+**Why This Hurts So Much:**
+For the system, it is just a code mismatch.
 
-This is how experienced procurement people lose trust in software. Not because the UI is ugly, but because the system gives them false confidence.
+For the team, it becomes a mini war room.
 
-**What Better Looks Like:**
-A better procurement platform does not just display status. It interprets intent and risk. It should tell the buyer:
+One wrong fallback status can create:
 
-- "PO sent, but not commercially acknowledged in 6 hours."
-- "Supplier accepted quantity but pushed date by 9 days."
-- "Reason code on rejection is unfamiliar; route to integration support and category manager."
-- "Three similar failures occurred this week for the same supplier endpoint."
+- unnecessary investigation
+- false escalation
+- confusion between support and business
+- doubt about whether the supplier actually responded
+- loss of trust in the dashboard itself
 
-That is where I believe agentic systems become useful. Not as chat gimmicks, but as operational translators between machine messages and commercial reality. An intelligent system should read the transaction trail, infer the real business consequence, and explain it in buyer language before the dashboard meeting starts.
+And once trust goes, everything becomes manual. People stop believing the status screen. Every issue needs rechecking. Every red flag becomes suspicious. Every mismatch feels like it may become a bigger fire.
+
+That is when software becomes tiring. Not because it crashed, but because it keeps making people do work that should not exist.
+
+**The Real Problem:**
+The real problem is not only the standards mismatch.
+
+The real problem is that the system has no judgment.
+
+It can move the message, store the response, and update a dashboard. But it cannot pause and think: "The supplier has replied. This status is slightly different. Maybe this is a mapping issue, not a real business failure."
+
+That gap matters a lot.
+
+Because in procurement, a small technical mismatch can create a very different business feeling. The dashboard says failed. The business hears risk. Support hears incident. Management hears delay. But the actual truth may only be that the system could not interpret a minor variation.
+
+This is why I do not trust dashboards so easily. Many dashboards are showing technical confidence, not business truth.
+
+**What A Better System Should Do:**
+A better system should not jump straight to red.
+
+It should be able to say something more human:
+
+- "Supplier response received."
+- "Returned status is slightly different from expected pattern."
+- "Possible mapping or standards mismatch."
+- "Needs review, but this does not look like a hard failure."
+
+That one layer of interpretation can save hours of unnecessary investigation.
+
+It can also save teams from that frustrating feeling that the system was watching the full situation happen and still could not help.
+
+Because that is what I remember most in these cases. The system was there for everything. It saw the PO go out. It saw the supplier response come in. It saw the mismatch. It had all the data. Still, it did not react in a useful way.
+
+It just watched.
+
+**Why Agentic AI Feels Important To Me:**
+This is exactly why I feel agentic AI has real value in enterprise systems.
+
+Not because it sounds modern. Not because every product now wants an AI label. But because these systems genuinely need a layer that can understand context, not just codes.
+
+An agentic system can look at the same situation and reason more like an experienced support person:
+
+- "The response is present."
+- "The format is close, but not exact."
+- "This may be a standards mismatch."
+- "Do not show final failure yet."
+- "Route this to support with proper explanation."
+- "If this repeats, recommend mapping correction."
+
+That is useful intelligence.
+
+That is the difference between a system that only records events and a system that actually helps people handle them.
 
 **The Final Insight:**
-After 15 years in procurement and sourcing software, I have learned one hard truth: visibility is not value. If the system cannot tell you what changed, why it matters, and what to do next, then the dashboard is not intelligence. It is digital wallpaper with executive lighting.
+My learning from all this is simple.
+
+In enterprise systems, many fires do not start because data is missing. They start because meaning is missing.
+
+When the PO is sent, the supplier responds, the system receives the event, and still the dashboard shows the wrong outcome, the issue is not just technical. It is interpretational.
+
+That is the deep burning.
+
+The system is present. The data is present. The event is present. But the intelligence to react properly is missing.
+
+And that is why I believe agentic AI can genuinely reduce these situations. Not by replacing people, but by catching small mismatches before they turn into unnecessary human stress.

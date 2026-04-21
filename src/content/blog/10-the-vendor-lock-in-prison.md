@@ -1,7 +1,7 @@
 ---
 title: 'The Vendor Lock-in Prison'
 description: 'The trauma of migrating ''Hostage Data'' to a new ERP.'
-pubDate: '2026-04-25'
+pubDate: '2027-04-25'
 heroImage: '../../assets/images/blog/10-the-vendor-lock-in-prison.png'
 ---
 

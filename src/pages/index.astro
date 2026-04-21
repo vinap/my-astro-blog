@@ -5,7 +5,11 @@ import Header from '../components/Header.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog')).sort(
+const today = new Date();
+
+const posts = (await getCollection('blog'))
+	.filter((post) => post.data.pubDate <= today)
+	.sort(
 	(a, b) => Number(b.data.pubDate) - Number(a.data.pubDate)
 );
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');

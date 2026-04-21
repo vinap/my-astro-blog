@@ -1,7 +1,7 @@
 ---
 title: 'The Pivot: Why I''m Choosing AI Engineering'
 description: 'After 15 years, I realized we can''t ''patch'' our way to the future.'
-pubDate: '2026-04-29'
+pubDate: '2027-04-29'
 heroImage: '../../assets/images/blog/14-the-pivot-why-ai.png'
 ---
 

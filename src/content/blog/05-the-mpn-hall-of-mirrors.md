@@ -1,7 +1,7 @@
 ---
 title: 'The MPN Hall of Mirrors: Redundant Inventory'
 description: 'Buying the same resistor under five different part numbers.'
-pubDate: '2026-04-20'
+pubDate: '2027-04-20'
 heroImage: '../../assets/images/blog/05-the-mpn-hall-of-mirrors.png'
 ---
 

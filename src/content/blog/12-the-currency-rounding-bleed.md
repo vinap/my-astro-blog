@@ -1,7 +1,7 @@
 ---
 title: 'The Currency Rounding Bleed'
 description: 'Losing thousands on 2-decimal exchange rate errors.'
-pubDate: '2026-04-27'
+pubDate: '2027-04-27'
 heroImage: '../../assets/images/blog/12-the-currency-rounding-bleed.png'
 ---
 

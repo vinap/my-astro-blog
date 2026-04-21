@@ -1,7 +1,7 @@
 ---
 title: 'The Parent-Child Identity Crisis'
 description: 'Missing 10% discounts because of entity fragmentation.'
-pubDate: '2026-04-21'
+pubDate: '2027-04-21'
 heroImage: '../../assets/images/blog/06-the-parent-child-identity-crisis.png'
 ---
 
