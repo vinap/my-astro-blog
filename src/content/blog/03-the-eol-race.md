@@ -1,7 +1,7 @@
 ---
 title: 'The EOL Race: When Time Becomes the Enemy'
 description: 'What happens when a product dies during your 3-day batch window?'
-pubDate: '2027-04-18'
+pubDate: '2026-04-18'
 heroImage: '../../assets/images/blog/03-the-eol-race.png'
 ---
 
