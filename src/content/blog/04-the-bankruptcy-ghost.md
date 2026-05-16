@@ -1,22 +1,21 @@
 ---
 title: 'The Bankruptcy Ghost: The Liability Chain'
 description: 'Executing a $1M PO for a customer that no longer exists.'
-pubDate: '2027-04-19'
+pubDate: '2026-04-19'
 heroImage: '../../assets/images/blog/04-the-bankruptcy-ghost.png'
 ---
 
-Procurement systems are very good at validating fields. They are much worse at understanding context. That is how you end up with a legally valid purchase order tied to a commercially dead opportunity.
-
+How does a procurement system validate a PO tied to a dead opportunity? It doesn’t. Systems are terrible at understanding context.
 I call this the **Bankruptcy Ghost**.
 
 The ghost appears when your workflow is technically flawless but strategically blind. The cart is approved. The supplier is active. The contract reference exists. The PO transmits successfully. Every checkbox is green. Then the outside world changes overnight and your perfect process turns into an expensive mistake.
 
 **The Scenario That Still Sticks With Me:**
-We were dealing with custom-tooled components for a customer-specific product line. Nothing about the buy was reusable. Once the supplier started, the material and tooling were effectively married to that one commercial program.
+I saw this happen with custom-tooled components for a customer-specific product line. Because the parts were custom-made, none of them could be reused.
 
-On Friday evening, everyone felt efficient. Procurement had moved quickly. The supplier had acknowledged. Internal teams were happy that the process had flowed without delay.
+Procurement had moved quickly. The supplier had acknowledged. Internal teams were happy that the process had flowed without delay.
 
-By Saturday morning, the customer filed for Chapter 11.
+By Saturday morning, the customer filed for Bankruptcy.
 
 That was the moment when "operational excellence" became a liability chain.
 
@@ -57,9 +56,7 @@ For customer-specific spend, a smarter system should treat external risk signals
 - cancellation terms
 - amount of non-recoverable exposure
 
-Then it should tell the buyer, in plain language, "This order is legally ready but commercially risky. Expected non-cancelable exposure: $1.2M."
-
-That single sentence would save companies more money than many dashboard programs I have seen funded.
+Then it should tell the buyer, in plain language, "This order is legally ready but commercially risky. Expected non-cancelable exposure"
 
 **Where Experience Changes Your View:**
 After years in procurement software, I no longer believe process speed alone is always good. Speed without context is just faster commitment to bad information. Mature sourcing organizations know the difference between friction and judgment. Good software should reduce the first and amplify the second.
