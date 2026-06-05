@@ -1,7 +1,7 @@
 ---
 title: 'The MPN Hall of Mirrors: Redundant Inventory'
 description: 'Buying the same resistor under five different part numbers.'
-pubDate: '2027-04-20'
+pubDate: '2026-04-20'
 heroImage: '../../assets/images/blog/05-the-mpn-hall-of-mirrors.png'
 ---
 
@@ -11,12 +11,6 @@ If the answer is no, you are standing inside what I call the **MPN Hall of Mirro
 
 I have seen businesses carry millions in "excess" inventory while another region buys the exact same part at spot-market premiums. Not a similar part. Not an approved alternate. The same capacitor, the same tolerance, the same package, the same manufacturer, hidden under different codes and descriptions.
 
-**A Warehouse Story With Real Teeth:**
-In one case, a European site was holding what planners called slow-moving inventory for a Samsung capacitor. At the same time, an Asia team was escalating a shortage on what they thought was a different item. One record used the manufacturer part number. Another used a distributor-specific code. A third used an internal legacy SKU from an older ERP migration.
-
-The systems saw three items. The business was paying for one mistake.
-
-What made it worse was that every team had a reasonable explanation. Europe trusted its material master. Asia trusted the local vendor catalog. North America trusted the historical aliases in the sourcing tool. Nobody was careless. The data model was.
 
 **Why This Happens So Often:**
 Most master-data implementations were built for exact matching, not semantic identity. If one record says "Cap 0.1uF 50V X7R" and another says "Samsung MLCC 0.1UF 50V", a brittle system treats them as different unless somebody explicitly maps them.
