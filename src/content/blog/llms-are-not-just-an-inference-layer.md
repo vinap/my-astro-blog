@@ -2,7 +2,7 @@
 title: 'LLMs Are Not Just an Inference Layer: What We Learned While Building Observability in Microservices'
 description: 'A concise, production-focused set of lessons learned while adding observability to LLMs across microservices.'
 pubDate: '2026-06-05'
-heroImage: '../../assets/images/blog/llm-obs.png'
+heroImage: '../../assets/images/blog/Blog Header LLM.png'
 ---
 
 The first time we added an LLM call to a microservice, the architecture looked simple and elegant:
@@ -32,7 +32,7 @@ At that stage, the setup felt effective. It gave us enough control and visibilit
 
 As usage grew across multiple services, the missing pieces began to show.
 
-### 🔸 Problem 1: Lack of End-to-End Traceability
+###  Problem 1: Lack of End-to-End Traceability
 
 We could track token usage.
 We could store individual responses.
@@ -45,7 +45,7 @@ But we could not reliably answer:
 That meant when a business user complained that the assistant returned stale information, we had to manually reconstruct the flow from logs and guess which version of the prompt and context had been used.
 Observability existed, but only in fragments. It was not a unified trace.
 
-### 🔸 Problem 2: Tight Coupling Across Microservices
+###  Problem 2: Tight Coupling Across Microservices
 
 Each microservice implemented:
 - its own prompt selection logic, often using slightly different rules for the same use case.
@@ -58,7 +58,7 @@ That led to:
 
 In practice, that meant one team would update their prompt strategy and another would still be using the old semantics. The result was confusing behavior for the product and longer incident response times.
 
-### 🔸 Problem 3: Prompt Management Didn’t Scale
+###  Problem 3: Prompt Management Didn’t Scale
 
 Prompt versioning worked at first, but it lacked a platform:
 - no centralized prompt registry, so teams managed versions in different places.
@@ -67,11 +67,11 @@ Prompt versioning worked at first, but it lacked a platform:
 
 This was the first time we understood that prompts are not just code strings. They are product assets that need lifecycle management, audit history, and quality controls.
 
-### 🔸 Problem 4: Observability Was Partial
+###  Problem 4: Observability Was Partial
 
 We had:
-- cost visibility ✅ — we knew how many tokens were being spent.
-- response storage ✅ — we kept the outputs for later review.
+- cost visibility  — we knew how many tokens were being spent.
+- response storage  — we kept the outputs for later review.
 
 But we were missing:
 - request-level correlation — we could not link the model call to the originating business request.
@@ -81,7 +81,7 @@ But we were missing:
 
 Without those signals, production debugging was still difficult. A single bad response could trigger a lengthy investigation because the team had to trace across multiple services and storage systems to reconstruct what happened.
 
-### 🔸 The Key Realization
+###  The Key Realization
 
 At this point, we needed a fundamental shift in thinking.
 
@@ -92,7 +92,7 @@ They introduce:
 - dependency on evolving context
 - operational complexity
 
-### 🔸 Additional production issues we observed
+###  Additional production issues we observed
 
 - **Prompt sensitivity:** small prompt tweaks produced large deviations in output. Mitigation: treat prompts as experimental assets, run small controlled canaries, and roll changes out gradually.
 - **Intermittent correctness:** the same prompt sometimes worked and sometimes failed. Mitigation: add validation checks and guardrails, and record confidence/diagnostics for each call.
@@ -114,7 +114,7 @@ This means the model is not just a dependency that gets called from the nearest 
 
 A more scalable architecture looks like this:
 
-![AI observability architecture](../../assets/images/blog/LLM_obsevability_architecture.svg)
+![AI observability architecture](../../assets/images/blog/Architeture.png)
 
 The first time we added an LLM call to a microservice, it behaved like any other dependency: call the model, return the response. The demo worked, we shipped, and then we reviewed what production revealed.
 
@@ -186,4 +186,3 @@ The orchestrator is the single decision point; prompt templates and retrieval li
 
 Shipping an LLM-based feature is easy; operating it reliably at scale is the hard part. The pragmatic changes above convert an ad-hoc feature into an operable platform capability: measurable, auditable, and safe.
 
-If you'd like, I can turn this into a shorter executive summary for the top of the post, or expand any section into a deeper how-to with code snippets and configuration examples.
